@@ -33,7 +33,26 @@ export const Button = styled.button`
     width: 100%;
     padding: 10px;
     border-radius: 25px;
+    border: 1px #FE7E02 solid ;
+    color: #FE7E02;
+    :hover{
+        opacity: 80%;
+        cursor: pointer;
+    }
+`
+
+export const ButtonColor = styled.button`
+    height: 2.5rem;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
     border: 1px lightgray solid ;
+    background: linear-gradient(90deg, #FF6489, #F9B24E);
+    color: white;
+    :hover{
+        opacity: 80%;
+        cursor: pointer;
+    }
 `
 
 export const Div = styled.div`
@@ -54,13 +73,13 @@ export const DivButtons = styled.div`
     width: 90%;
 `
 
-export const ImgHome = styled.img`
-    width: 8rem;
-`
-
 export const Paragraph = styled.p`
     font-weight: 300;
     font-size: 14px;
+`
+
+export const ImgHome = styled.img`
+    width: 8rem;
 `
 
 export const Line = styled.img`

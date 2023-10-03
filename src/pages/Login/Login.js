@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import useForms from '../../hooks/useForms'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import axios from 'axios'
-import { ContainerForm, ContainerLogin, Input, Div, ImgHome, Paragraph, Button, Line, DivButtons } from './LoginStyled'
+import { ContainerForm, ContainerLogin, Input, Div, ImgHome, Paragraph, Button, Line, DivButtons, ButtonColor } from './LoginStyled'
 import { goToSignUp, goToFeed } from '../../routes/coordinator'
 import { BASE_URL } from '../../constants/BASE_URL'
 import logoHome from '../../assets/logoHome.png'
@@ -41,7 +41,8 @@ export default function Login() {
           <Paragraph>O projeto de rede social da Labenu</Paragraph>
         </Div>
         <Div>
-          <Input id='email'
+          <Input
+            id='email'
             name="email"
             type="email"
             value={form.email}
@@ -49,7 +50,8 @@ export default function Login() {
             placeholder="E-mail"
             required
           />
-          <Input id='password'
+          <Input
+            id='password'
             name="password"
             minLength={8}
             value={form.password}
@@ -59,7 +61,7 @@ export default function Login() {
           />
         </Div>
         <DivButtons>
-          <Button>Continuar</Button>
+          <ButtonColor>Continuar</ButtonColor>
           <Line src={line} alt="line" />
           <Button onClick={() => goToSignUp(navigate)}>Crie uma conta!</Button>
         </DivButtons>
