@@ -1,57 +1,48 @@
 import React from 'react'
 import useForms from '../../hooks/useForms'
-import { ButtonColor, ContainerForm, ContainerSignup, Div, Input, DivCheckbox, Paragraph, Span, DivSignup } from './SignupStyled'
+import { ButtonColor, ContainerForm, ContainerSignup, Div, Input, DivCheckbox, Paragraph, Span, DivSignup, Title, DivTitle } from './SignupStyled'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/BASE_URL'
-import { useNavigate } from 'react-router-dom'
-import { goToFeed } from '../../routes/coordinator'
+//import { useNavigate } from 'react-router-dom'
+//import { goToFeed } from '../../routes/coordinator'
 
 export default function Signup() {
-    const { form, onChange } = useForms({ email: "", password: "", userNickname: "" })
+    const { form, onChange, cleanInput } = useForms({ nickname: "", email: "", password: "" })
 
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
 
     const userData = {
-        username: form.userNickname,
+        nickname: form.nickname,
         email: form.email,
-        password: form.senha
+        password: form.password
     }
 
-    const enviarCadastro = (e) => {
+    const sendSignup = (e) => {
         e.preventDefault()
 
         axios.post(`${BASE_URL}/users/signup`, userData)
             .then(response => {
-                console.log('resposta ', response.data.token)
-                window.localStorage.setItem('token', response.data.token)
-                goToFeed(navigate)
-
+                localStorage.setItem('token', response.data.token)
+                cleanInput()
             })
             .catch((error) => {
                 console.log("resposta do erro", error.response)
             })
-        /*         if (form.password === form.confirmPassword) {
-                    const userData = {
-                        username: form.nomeUsuario,
-                        email: form.email,
-                        password: form.password
-                    }
-                    console.log(userData)
-                } else {
-                    alert("Digite a mesma senha nos campos 'senha' e 'confirmação de senha'")
-                } */
     }
 
     return (
         <ContainerSignup>
-            <ContainerForm onSubmit={enviarCadastro}>
+            <ContainerForm onSubmit={sendSignup}>
+                <DivTitle>
+                    <Title>Olá, boas vindas ao LabEddit ;)</Title>
+                </DivTitle>
                 <Div>
                     <Input
                         id='nickname'
-                        name='userNickname'
+                        name='nickname'
                         pattern='[a-zA-Z\u00C0-\u00FF ]{3,}'
                         title='Nome de usuário deve ter no mínimo 3 caracteres. Podendo conter letras, acentos e espaço'
-                        value={form.userNickname}
+                        value={form.nickname}
                         onChange={onChange}
                         placeholder="Apelido"
                         required
@@ -69,8 +60,8 @@ export default function Signup() {
                         id='password'
                         name='password'
                         type="password"
-                        minLength={8}
-                        value={form.senha}
+                        minLength={1}
+                        value={form.password}
                         onChange={onChange}
                         placeholder="Senha"
                         required
@@ -84,8 +75,9 @@ export default function Signup() {
                         <input type="checkbox"></input>
                         <Paragraph>Eu concordo em receber email sobre coisas legais no Labeddit</Paragraph>
                     </DivCheckbox>
+                    <ButtonColor>Cadastrar</ButtonColor>
                 </DivSignup>
-                <ButtonColor>Cadastrar</ButtonColor>
+
             </ContainerForm>
         </ContainerSignup>
     )

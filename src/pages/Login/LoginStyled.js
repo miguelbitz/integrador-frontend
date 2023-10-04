@@ -36,7 +36,8 @@ export const Button = styled.button`
     border: 1px #FE7E02 solid ;
     color: #FE7E02;
     :hover{
-        opacity: 80%;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(5px);
         cursor: pointer;
     }
 `
@@ -50,7 +51,8 @@ export const ButtonColor = styled.button`
     background: linear-gradient(90deg, #FF6489, #F9B24E);
     color: white;
     :hover{
-        opacity: 80%;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(5px);
         cursor: pointer;
     }
 `
