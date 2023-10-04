@@ -19,9 +19,9 @@ export default function Header() {
             return (
                 <ContainerHeader>
                     <Img onClick={() => handleRefresh()} src={logoHeader} alt="logoHeader" />
-                    <Link to='/'>
-                        <Title>Entrar</Title>
-                    </Link>
+                    <Title to='/'>
+                        Entrar
+                    </Title>
                 </ContainerHeader>
             )
         } else if (home) {
@@ -32,9 +32,9 @@ export default function Header() {
             return (
                 <ContainerHeader>
                     <Img onClick={() => handleRefresh()} src={logoHeader} alt="logoHeader" />
-                    <Link to='/'>
-                        <Title>Logout</Title>
-                    </Link>
+                    <Title to='/'>
+                        Logout
+                    </Title>
                 </ContainerHeader>
             )
         }

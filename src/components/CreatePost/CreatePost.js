@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ButtonColor, FormPost, Input, TextArea } from './CreatePostStyled'
 import useForms from '../../hooks/useForms'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/BASE_URL'
 import useProtectedPage from '../../hooks/useProtectedPage'
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 export default function CreatePost() {
   useProtectedPage()
 
-  const token = localStorage.getItem('token')
+  const { token, setReloadPosts } = useContext(GlobalContext);
+
 
   const headers = {
     headers:{
@@ -24,7 +26,7 @@ export default function CreatePost() {
     axios.post(`${BASE_URL}/posts`, form, headers)
       .then((res) => {
         cleanInput()
-        window.location.reload()
+        setReloadPosts(prevState => !prevState);
       })
       .catch((err) => {
         console.log(err.response.data)
