@@ -7,9 +7,8 @@ export default function CardPost({ post }) {
   const navigate = useNavigate()
   return (
     <Card onClick={()=>{goToPost(navigate, post.id)}}>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-      <p>@{post.username} - {post.commentCount || 0} comentários</p>
+      <p>Enviado por: {post.creator.nickname}</p>
+      <p>{post.content}</p>
     </Card>
   )
 }

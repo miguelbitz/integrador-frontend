@@ -1,3 +1,5 @@
+
+
 import styled from "styled-components";
 
 export const ContainerSignup = styled.main`
@@ -11,7 +13,7 @@ export const ContainerForm = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 1rem;
     min-width: fit-content;
     width: 100vw;
     gap: 2rem;
@@ -29,13 +31,13 @@ export const Input = styled.input`
 export const ButtonColor = styled.button`
     height: 2.5rem;
     width: 90%;
-    padding: 10px;
     border-radius: 25px;
     border: 1px lightgray solid ;
     background: linear-gradient(90deg, #FF6489, #F9B24E);
     color: white;
     :hover{
-        opacity: 80%;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(5px);
         cursor: pointer;
     }
 `
@@ -74,4 +76,17 @@ export const Span = styled.span`
 export const Paragraph = styled.p`
     font-weight: 400;
     font-size: 14px;
+`
+
+export const Title = styled.p`
+    font-weight: bold;
+    font-size: 2rem;
+`
+
+export const DivTitle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-bottom: 3rem;
 `

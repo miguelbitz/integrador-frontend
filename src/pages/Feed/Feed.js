@@ -3,22 +3,18 @@ import { useNavigate } from 'react-router-dom'
 import CardPost from '../../components/CardPost/CardPost'
 import CreatePost from '../../components/CreatePost/CreatePost'
 import useProtectedPage from '../../hooks/useProtectedPage'
-import useRequestData from '../../hooks/useRequestData'
 import { FeedContainer } from './FeedStyled'
 import { goToHome } from '../../routes/coordinator'
+import { GlobalContext } from "../../contexts/GlobalContext"
+import { useContext } from "react"
+import Header from '../../components/Header.js/Header'
 
 
 export default function Feed() {
   useProtectedPage()
   const navigate = useNavigate()
 
-  const token = localStorage.getItem('token')
-  const headers = {
-    headers:{
-      Authorization: token
-    }
-  }
-  const [posts] = useRequestData([], '/posts', headers)
+  const { token, posts } =  useContext(GlobalContext)
 
   useEffect(()=>{
     if(!token){
@@ -28,9 +24,7 @@ export default function Feed() {
 
   return (
     <FeedContainer>
-      <h1>Feed</h1>
       <section>
-        <h3>Novo post</h3>
         <CreatePost />
       </section>
       {

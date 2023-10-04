@@ -21,16 +21,12 @@ export default function Login() {
 
     axios.post(`${BASE_URL}/users/login`, form)
       .then(response => {
-        console.log('resposta do login', response.data.token)
         localStorage.setItem('token', response.data.token)
         goToFeed(navigate)
-
       })
       .catch((error) => {
         console.log("resposta do erro", error.response)
       })
-
-    console.log(form)
   }
 
   return (
@@ -53,7 +49,8 @@ export default function Login() {
           <Input
             id='password'
             name="password"
-            minLength={8}
+            type="password"
+            minLength={1}
             value={form.password}
             onChange={onChange}
             placeholder="Senha"
