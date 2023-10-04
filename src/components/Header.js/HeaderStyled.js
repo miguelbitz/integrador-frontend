@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
@@ -17,19 +18,23 @@ export const DivImg = styled.div`
 
 `
 
-export const Title = styled.p`
+export const Title = styled(Link)`
     color: #4088CB;
     background-color: transparent;
     font-weight: 600;
     grid-column: 3/4;
     text-decoration: none;
-    :hover{
-        cursor:pointer;
+    :hover {
+        cursor: pointer;
     }
-    :a{
+    &:active, &:focus {
+        outline: none;
+        background-color: transparent;
         text-decoration: none;
+        color: #4088CB;
     }
-`
+`;
+
 
 export const Img = styled.img`
     height: 28px;

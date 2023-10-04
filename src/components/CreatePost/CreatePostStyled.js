@@ -4,16 +4,16 @@ export const FormPost = styled.form`
     width: fit-content;
     display: flex;
     flex-direction: column ;
+    width: 100%;
     gap: .5rem;
 `
-export const Input = styled.input`
-    width: 40vw;
-    margin-bottom: 16px;
-`
 export const TextArea = styled.textarea`
-    width: 40vw;
-    height: 10vh;
+    height: 6rem;
     margin: 3px;
+    border: none;
+    background-color: #EDEDED;
+    border-radius: 12px;
+    padding: .8rem;
 `
 
 export const ButtonColor = styled.button`
