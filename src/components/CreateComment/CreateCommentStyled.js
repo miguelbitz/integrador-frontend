@@ -18,6 +18,7 @@ export const TextArea = styled.textarea`
 
 export const ButtonColor = styled.button`
     height: 2.5rem;
+    font-weight: 600;
     border-radius: 10px;
     border: 1px lightgray solid ;
     background: linear-gradient(90deg, #FF6489, #F9B24E);
