@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, useLocation } from "react-router-dom";
-import { ContainerHeader, Title, Img, DivImg } from './HeaderStyled'
+import { ContainerHeader, Title, Img, Back, BackImg } from './HeaderStyled'
 import logoHeader from '../../assets/logoHeader.png'
+import backpage from '../../assets/backpage.png'
 
 export default function Header() {
     const location = useLocation()
@@ -13,6 +14,7 @@ export default function Header() {
     const home = location.pathname === '/'
     const signup = location.pathname === '/signup'
     const feed = location.pathname === '/feed'
+    const detailPage = location.pathname.startsWith('/post/')
 
     const changePage = () => {
         if (signup) {
@@ -31,6 +33,18 @@ export default function Header() {
         } else if (feed) {
             return (
                 <ContainerHeader>
+                    <Img onClick={() => handleRefresh()} src={logoHeader} alt="logoHeader" />
+                    <Title to='/'>
+                        Logout
+                    </Title>
+                </ContainerHeader>
+            )
+        }else if (detailPage) {
+            return (
+                <ContainerHeader>
+                    <Back to='/feed'>
+                        <BackImg src={backpage} alt='backpage'/>
+                    </Back>
                     <Img onClick={() => handleRefresh()} src={logoHeader} alt="logoHeader" />
                     <Title to='/'>
                         Logout

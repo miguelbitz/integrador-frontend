@@ -9,8 +9,6 @@ import { GlobalContext } from "../../contexts/GlobalContext"
 import { useContext } from "react"
 import line from '../../assets/line.png'
 
-
-
 export default function Feed() {
   useProtectedPage()
   const navigate = useNavigate()
