@@ -54,7 +54,7 @@ export const GlobalState = ({ children }) => {
   };
 
   const likeComment = (commentId) => {
-    axios.put(`${BASE_URL}/comment/${commentId}/like`, { like: true }, headers)
+    axios.put(`${BASE_URL}/comments/${commentId}/like`, { like: true }, headers)
       .then(() => {
         setReloadPosts(prev => !prev);
       })
@@ -64,7 +64,7 @@ export const GlobalState = ({ children }) => {
   };
 
   const dislikeComment = (commentId) => {
-    axios.put(`${BASE_URL}/comment/${commentId}/like`, { like: false }, headers)
+    axios.put(`${BASE_URL}/comments/${commentId}/like`, { like: false }, headers)
       .then(() => {
         setReloadPosts(prev => !prev);
       })
