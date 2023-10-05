@@ -35,9 +35,30 @@ export const Title = styled(Link)`
     }
 `;
 
+export const Back = styled(Link)`
+    color: #4088CB;
+    background-color: transparent;
+    font-weight: 600;
+    grid-column: 1/2;
+    text-decoration: none;
+    :hover {
+        cursor: pointer;
+    }
+    &:active, &:focus {
+        outline: none;
+        background-color: transparent;
+        text-decoration: none;
+        color: #4088CB;
+    }
+`;
 
 export const Img = styled.img`
     height: 28px;
     grid-column: 2/3;
+    background-color: transparent;
+`
+
+export const BackImg = styled.img`
+    height: 40px;
     background-color: transparent;
 `

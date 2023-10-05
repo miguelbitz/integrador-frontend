@@ -1,21 +1,25 @@
 import styled from "styled-components";
 
-export const Card = styled.section`
+export const DetailContainer = styled.main`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+`
+
+export const Card = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: start;
     border: none;
     background-color: #EDEDED;
     border-radius: 12px;
-    margin: 3px;
+    margin-top: 1rem;
     padding: 8px 16px;
     gap: 1rem;
     width: 90%;
-    :hover{
-        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(5px);
-        cursor: pointer;
-    }
 `
 
 export const Interaction = styled.div`
@@ -67,6 +71,9 @@ export const Title = styled.p`
 export const ImgLike = styled.img`
     background-color: transparent;
     height: .9rem;
+    :hover{
+        cursor: pointer;
+    }
 `
 
 export const ImgComment = styled.img`
@@ -86,4 +93,15 @@ export const CommentsAmount = styled.p`
     font-weight: 400;
     background-color: transparent;
     color: #6F6F6F;
+`
+
+export const CreateCommentContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+`
+export const Line = styled.img`
+    width: 90%;
 `

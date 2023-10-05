@@ -9,7 +9,6 @@ import { BASE_URL } from '../../constants/BASE_URL'
 import logoHome from '../../assets/logoHome.png'
 import line from '../../assets/line.png'
 
-
 export default function Login() {
   const navigate = useNavigate()
   useProtectedPage()

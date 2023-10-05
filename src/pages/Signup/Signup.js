@@ -3,13 +3,9 @@ import useForms from '../../hooks/useForms'
 import { ButtonColor, ContainerForm, ContainerSignup, Div, Input, DivCheckbox, Paragraph, Span, DivSignup, Title, DivTitle } from './SignupStyled'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/BASE_URL'
-//import { useNavigate } from 'react-router-dom'
-//import { goToFeed } from '../../routes/coordinator'
 
 export default function Signup() {
     const { form, onChange, cleanInput } = useForms({ nickname: "", email: "", password: "" })
-
-    //const navigate = useNavigate()
 
     const userData = {
         nickname: form.nickname,

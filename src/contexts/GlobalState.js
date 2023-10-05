@@ -33,19 +33,18 @@ export const GlobalState = ({ children }) => {
 
   const posts = [...postsArr].reverse();
 
-
   const likePost = (postId) => {
-    axios.post(`${BASE_URL}/posts/:id/like`, { postId, like: true }, headers)
+    axios.put(`${BASE_URL}/posts/${postId}/like`, { like: true }, headers)
       .then(() => {
         setReloadPosts(prev => !prev);
       })
       .catch((err) => {
-        console.error("Erro ao curtir post:", err);
+        console.error("Erro ao dar like no post:", err);
       });
   };
 
   const dislikePost = (postId) => {
-    axios.post(`${BASE_URL}/posts/:id/like`, { postId, like: false }, headers)
+    axios.put(`${BASE_URL}/posts/${postId}/like`, { like: false }, headers)
       .then(() => {
         setReloadPosts(prev => !prev);
       })
@@ -54,12 +53,34 @@ export const GlobalState = ({ children }) => {
       });
   };
 
+  const likeComment = (commentId) => {
+    axios.put(`${BASE_URL}/comment/${commentId}/like`, { like: true }, headers)
+      .then(() => {
+        setReloadPosts(prev => !prev);
+      })
+      .catch((err) => {
+        console.error("Erro ao dar like no comentario:", err);
+      });
+  };
+
+  const dislikeComment = (commentId) => {
+    axios.put(`${BASE_URL}/comment/${commentId}/like`, { like: false }, headers)
+      .then(() => {
+        setReloadPosts(prev => !prev);
+      })
+      .catch((err) => {
+        console.error("Erro ao dar dislike no comentario:", err);
+      });
+  };
+
   const context = {
     posts,
     token,
     setReloadPosts,
     likePost,
-    dislikePost
+    likeComment,
+    dislikePost,
+    dislikeComment
   }
 
   return (
