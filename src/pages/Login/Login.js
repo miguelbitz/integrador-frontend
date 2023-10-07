@@ -14,7 +14,7 @@ export default function Login() {
   const navigate = useNavigate()
   useProtectedPage()
 
-  const { isLoading, setIsLoading } = useContext(GlobalContext);
+  const { isLoading, setIsLoading } = useContext(GlobalContext)
 
   const { form, onChange } = useForms({ email: "", password: "" })
 
@@ -32,7 +32,7 @@ export default function Login() {
       })
       .finally(() => {
         setIsLoading(false);
-      });
+      })
   }
 
   return (

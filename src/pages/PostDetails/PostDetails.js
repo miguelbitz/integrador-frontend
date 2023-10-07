@@ -57,7 +57,7 @@ export default function PostDetails() {
     dislikePost(post.id);
   };
 
-  const qntLikes = post.likes - post.dislikes;
+  const qntLikes = post.likes - (post.dislikes + 1);
 
 
   return (
