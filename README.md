@@ -46,6 +46,8 @@ Os principais recursos do projeto Labeddit incluem:
 
 [Labeddit](https://integrador-frontend.vercel.app/)
 
+[Repositorio Back-end](https://github.com/miguelbitz/integrador-backend)
+
 ## Documentação do Postman
 
 [Link da API no POSTMAN](https://documenter.getpostman.com/view/26594213/2s9YJgTLMV)
