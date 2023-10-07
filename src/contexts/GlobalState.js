@@ -73,6 +73,9 @@ export const GlobalState = ({ children }) => {
       });
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
+
   const context = {
     posts,
     token,
@@ -80,7 +83,9 @@ export const GlobalState = ({ children }) => {
     likePost,
     likeComment,
     dislikePost,
-    dislikeComment
+    dislikeComment,
+    setIsLoading,
+    isLoading
   }
 
   return (

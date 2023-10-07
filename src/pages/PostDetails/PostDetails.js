@@ -8,12 +8,13 @@ import like from '../../assets/up.png';
 import dislike from '../../assets/down.png';
 import comment from '../../assets/comments.png';
 import CreateComment from '../../components/CreateComment/CreateComment';
-import line from '../../assets/line.png'
+import line from '../../assets/line.png';
 import CardComment from '../../components/CardComment/CardComment';
 
 export default function PostDetails() {
   const { likePost, dislikePost } = useContext(GlobalContext);
   const [postComments, setPostComments] = useState([]);
+  const [isLoadingComments, setIsLoadingComments] = useState(true);
   const { id } = useParams();
   const { posts } = useContext(GlobalContext);
 
@@ -34,14 +35,18 @@ export default function PostDetails() {
     axios.get(`${BASE_URL}/comments?postId=${post.id}`, headers)
       .then((res) => {
         setPostComments(res.data);
+        setIsLoadingComments(false);
       })
       .catch((err) => {
         console.error("Erro ao buscar comentários:", err);
+        setIsLoadingComments(false);
       });
   }, [post]);
 
   if (!post) {
-    return <div>Loading post...</div>;
+    return (
+      <div class="loader"></div>
+  );
   }
 
   const handleLike = () => {
@@ -53,6 +58,7 @@ export default function PostDetails() {
   };
 
   const qntLikes = post.likes - post.dislikes;
+
 
   return (
     <DetailContainer>
@@ -72,14 +78,16 @@ export default function PostDetails() {
         </Interaction>
       </Card>
       <CreateCommentContainer>
-        <CreateComment/>
+        <CreateComment postId={post.id}/>
       </CreateCommentContainer>
       <Line src={line} alt="line" />
-      {
+      {isLoadingComments ? (
+        <div class="loader"></div>
+      ) : (
         comments.map((comment) => {
-          return <CardComment key={comment.id} comment={comment} />
+            return <CardComment key={comment.id} comment={comment} />;
         })
-      }
+      )}
     </DetailContainer>
   );
 }
